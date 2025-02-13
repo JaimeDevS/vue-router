@@ -16,6 +16,16 @@
 <script>
 export default {
   props: ['id'],
+   //interceptando a rota via componente
+  beforeRouteEnter(to, from, next) {
+    console.log('dentro do componente -> usuário detalhe');
+    // next(vm => {
+    //   console.log(vm.id);   //acessando a variável antes da rota   
+    // })
+    const autenticado = true
+    autenticado ? next() : next(false)
+  }
+
   // data() {
   //   return {
   //     id: this.$route.params.id
