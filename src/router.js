@@ -24,6 +24,7 @@ export default new Router({
         },
         {
             path: '/usuario',
+            //Component: Usuario,
             components: {
                 default: Usuario,
                 menu: MenuAlt,
@@ -35,6 +36,10 @@ export default new Router({
                 { path: ':id', component: UsuarioDetalhe, props: true },
                 { path: ':id/editar', component: UsuarioEditar, props: true, name: 'editarUsuario' },                
             ]
+        },
+        {
+            path: '/redirecionar',
+            redirect: '/usuario'
         }
     ]
 })
