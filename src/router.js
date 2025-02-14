@@ -1,14 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Inicio from './components/inicio.vue'
-import Usuario from './components/usuario/Usuario.vue'
-import UsuarioLista from './components/usuario/UsuarioLista.vue'
-import UsuarioDetalhe from './components/usuario/UsuarioDetalhe.vue'
-import UsuarioEditar from './components/usuario/UsuarioEditar.vue'
+//import Usuario from './components/usuario/Usuario.vue'
+//import UsuarioLista from './components/usuario/UsuarioLista.vue'
+//import UsuarioDetalhe from './components/usuario/UsuarioDetalhe.vue'
+//import UsuarioEditar from './components/usuario/UsuarioEditar.vue'
 import Menu from './components/template/menu.vue'
 import MenuAlt from './components/template/menuAlt.vue'
 
 Vue.use(Router)
+
+//carregamento lazy
+//o /* webpackChunkName: "usuario" */ é usado para criar um grupo de componentes para carregamento tardio
+const Usuario = () => import(/* webpackChunkName: "usuario" */'./components/usuario/Usuario.vue')
+const UsuarioLista = () => import(/* webpackChunkName: "usuario" */'./components/usuario/UsuarioLista.vue')
+const UsuarioDetalhe = () => import(/* webpackChunkName: "usuario" */'./components/usuario/UsuarioDetalhe.vue')
+const UsuarioEditar = () => import(/* webpackChunkName: "usuario" */'./components/usuario/UsuarioEditar.vue')
 
 const router = new Router({
     mode: 'history',
